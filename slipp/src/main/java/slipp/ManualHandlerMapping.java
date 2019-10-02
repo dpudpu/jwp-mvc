@@ -34,7 +34,8 @@ public class ManualHandlerMapping implements HandlerMapping {
 
     @Override
     public Controller getHandler(HttpServletRequest request) {
-        return mappings.get(request.getRequestURI());
+        final Controller controller = mappings.get(request.getRequestURI());
+        return controller;
     }
 
     void put(String url, Controller controller) {
